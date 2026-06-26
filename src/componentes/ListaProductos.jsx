@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react";
-const API_URL = import.meta.env.VITE_API_URL;
+
 
 export default function ListaProductos() {
-    
+    const API_URL = import.meta.env.VITE_API_URL;
     const [productos, setProductos] = useState([]);
 
     useEffect(() => {
@@ -18,8 +18,7 @@ export default function ListaProductos() {
 
             <ul>
                 {productos.map((producto) => (
-                    <li key={producto.id}>
-                        {producto.nombre} - {producto.precio}€
+                    <li key={producto.id}> Nombre: {producto.nombre} / Precio: {producto.precio}€
                     </li>
                 ))}
             </ul>

@@ -35,7 +35,7 @@ export default function FormularioProductos() {
         <>
             <form onSubmit={enviarFormulario}>
                 <input type="text" name="nombre" placeholder="nombre" />
-                <input type="number" name="precio" placeholder="apellidos" />
+                <input type="number" name="precio" placeholder="precio €" />
                 <button type="submit">Añadir Producto</button>
             </form>
 
