@@ -1,5 +1,6 @@
 import { useState } from "react";
 import ListaProductos from "./ListaProductos";
+const API_URL = import.meta.env.VITE_API_URL;
 
 export default function FormularioProductos() {
     const [key, setKey] = useState(0);
@@ -16,7 +17,7 @@ export default function FormularioProductos() {
 
         try {
             const respuesta = await fetch(
-                `https://apinombres.onrender.com/api/${nuevoProducto.nombre}/${nuevoProducto.precio}`,
+                `${API_URL}/${nuevoProducto.nombre}/${nuevoProducto.precio}`,
                 {
                     method: "POST",
                 },
