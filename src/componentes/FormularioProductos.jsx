@@ -33,15 +33,19 @@ export default function FormularioProductos() {
 
     return (
         <>
-            <h2>Formulario: </h2>
+            <div className='card p-4 mb-4'>
+                <h2 className='card-title mb-3'>Formulario</h2>
 
-            <form onSubmit={enviarFormulario}>
-                <input type="text" name="nombre" placeholder="nombre" />
-                <input type="number" name="precio" placeholder="precio €" />
-                <button type="submit">Añadir Producto</button>
-            </form>
-            <br />
-            <br />
+                <form onSubmit={enviarFormulario}>
+                    <div className='mb-3'>
+                        <input type="text" name="nombre" placeholder="Nombre del producto" className='form-control' required />
+                    </div>
+                    <div className='mb-3'>
+                        <input type="number" name="precio" placeholder="Precio €" className='form-control' step="0.01" required />
+                    </div>
+                    <button type="submit" className='btn btn-primary w-100'>Añadir Producto</button>
+                </form>
+            </div>
 
             <ListaProductos key={key}></ListaProductos>
         </>

@@ -12,18 +12,22 @@ export default function ListaProductos() {
             .catch((error) => console.error(error));
     }, []);
 
-    
+
 
     return (
         <>
-            <h2>Lista de productos</h2>
+            <div className='card p-4'>
+                <h2 className='card-title mb-3'>Lista de productos</h2>
 
-            <ul>
-                {productos.map((producto) => (
-                    <li key={producto.id}> Nombre: {producto.nombre} / Precio: {producto.precio}€
-                    </li>
-                ))}
-            </ul>
+                <ul className='list-group'>
+                    {productos.map((producto) => (
+                        <li key={producto.id} className='list-group-item d-flex justify-content-between align-items-center'>
+                            <span>{producto.nombre}</span>
+                            <span className='badge bg-success'>{producto.precio}€</span>
+                        </li>
+                    ))}
+                </ul>
+            </div>
         </>
     );
 }
