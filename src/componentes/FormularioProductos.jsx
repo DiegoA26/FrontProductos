@@ -1,0 +1,44 @@
+import { useState } from "react";
+import ListaProductos from "./ListaProductos";
+
+export default function FormularioProductos() {
+    const [key, setKey] = useState(0);
+
+    const enviarFormulario = async (e) => {
+        e.preventDefault();
+
+        const datosFormateados = new FormData(e.target);
+
+        const nuevoProducto = {
+            nombre: datosFormateados.get("nombre"),
+            precio: datosFormateados.get("precio"),
+        };
+
+        try {
+            const respuesta = await fetch(
+                `https://apinombres.onrender.com/api/${nuevoProducto.nombre}/${nuevoProducto.precio}`,
+                {
+                    method: "POST",
+                },
+            );
+
+            setKey(key + 1);
+
+            e.target.reset();
+        } catch (error) {
+            console.error("Error :", error);
+        }
+    };
+
+    return (
+        <>
+            <form onSubmit={enviarFormulario}>
+                <input type="text" name="nombre" placeholder="nombre" />
+                <input type="number" name="precio" placeholder="apellidos" />
+                <button type="submit">Añadir Producto</button>
+            </form>
+
+            <ListaProductos key={key}></ListaProductos>
+        </>
+    );
+}
