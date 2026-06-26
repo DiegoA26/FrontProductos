@@ -16,18 +16,18 @@ export default function FormularioProductos() {
         };
 
         try {
-            const respuesta = await fetch(
-                `${API_URL}/${nuevoProducto.nombre}/${nuevoProducto.precio}`,
-                {
-                    method: "POST",
+            const respuesta = await fetch(`${API_URL}/productos`, {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
                 },
-            );
+                body: JSON.stringify(nuevoProducto),
+            });
 
             setKey(key + 1);
-
             e.target.reset();
         } catch (error) {
-            console.error("Error :", error);
+            console.error("Error:", error);
         }
     };
 
