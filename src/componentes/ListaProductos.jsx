@@ -12,6 +12,8 @@ export default function ListaProductos() {
             .catch((error) => console.error(error));
     }, []);
 
+    
+
     return (
         <>
             <h2>Lista de productos</h2>

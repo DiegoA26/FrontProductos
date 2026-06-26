@@ -9,7 +9,7 @@ function App() {
 
   return (
     <>
-      <h1>Formulario: </h1>
+      <h1>Examen Diego Alonso Feijoo</h1>
       <FormularioProductos></FormularioProductos>
     </>
   )
